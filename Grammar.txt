@@ -1,0 +1,79 @@
+program : definition
+	      | definition program
+	      | statement
+	      | statement program
+
+definition : funcDef
+      	   | varDecl
+	   | varExpression
+           		
+
+
+varDecl : VAR ID ASSIGN expression  //var number = 3
+
+funcDef : DEFINE ID OPAREN optParamList CPAREN block  //def angry(a){...}
+	  |lambda
+
+optParamList: paramList
+	         | *empty*
+			
+paramList : ID
+	   | ID COMMA paramList
+		  
+	         
+list : expression COMMA list
+     | expression
+     
+
+optionaList : list
+            | *empty*
+             
+
+expression : unary operator expression
+           | unary
+
+operator : PLUS
+         | TIMES
+         | SUB
+         | DIV
+         | AND
+         | OR
+         | LT
+         | GT
+         | LTE
+         | GTE
+         | ASSIGN
+         | NEQUALS
+
+unary : INTEGER
+	|STRING
+	|PRINT OPAREN list CPAREN
+        |OPAREN expression CPAREN
+	|OPAREN expression CPAREN
+	OPAREN optList CPAREN //another form of function call
+	|definition
+
+lambda : LAMBDA OPAREN optParamList CPAREN block  
+
+varExpression : ID 
+              | ID OPAREN optionaList CPAREN
+	    	   
+       
+block : OBRACKET statementList CBRACKET  //def time(a){ a = 5 } 
+
+statementList : statement
+              | statement statementList
+
+statement : expression    
+          | ifStatement
+          | whileStatement
+          | definition
+          
+ifStatement : IF expression block optElse
+
+optElse : ELSE block
+	| ELSE ifStatement
+        | *empty*
+         
+whileStatement : WHILE expression block
+

@@ -1,0 +1,3 @@
+function(i):
+	print hello
+function(2)

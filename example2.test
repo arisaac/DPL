@@ -1,0 +1,7 @@
+def id(){
+    var i = 0
+	i = 2 + 2
+	i = 8 - i
+	print(i)
+	}
+id()

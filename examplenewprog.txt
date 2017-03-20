@@ -1,0 +1,7 @@
+def fact(n){
+    print(n)
+    n = n - 1
+    print(n)
+    fact(n)
+    }
+fact(2)

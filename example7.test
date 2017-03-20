@@ -1,0 +1,6 @@
+def funct(i){
+	if i < 5{
+		print(i)
+		}
+	}
+funct(4)

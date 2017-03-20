@@ -1,0 +1,4 @@
+def t (hey){
+	h(h + h)
+	j
+	}

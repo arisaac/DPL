@@ -1,0 +1,10 @@
+def main(i){
+	i = i + 2 
+	print(i)
+	}	
+main(5)
+
+def main2(h){
+	print(h)
+	}
+main2(7)
